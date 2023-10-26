@@ -89,18 +89,14 @@ struct Node
 class Solution
 {
     public:
-    int isMirror(Node *a, Node* b){
+    int areMirror(Node* a, Node* b) {
+    // Your code here
         if(a == nullptr && b == nullptr) return true;
         if(a == nullptr || b == nullptr) return false;
         if(a->data != b->data) return false;
-        int left = isMirror(a->left, b->right);
-        int right = isMirror(a->right, b->left);
+        int left = areMirror(a->left, b->right);
+        int right = areMirror(a->right, b->left);
         return left && right;
-        
-    }
-    int areMirror(Node* a, Node* b) {
-    // Your code here
-       return isMirror(a, b);
     }
 
 };
